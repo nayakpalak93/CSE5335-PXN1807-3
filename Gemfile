@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.1.5'
+ruby '2.2.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
@@ -31,7 +31,7 @@ gem 'spring',        group: :development
 # gem 'bcrypt', '~> 3.1.7'
 
 #gem 'puma'
-gem 'mongo'
+gem 'mongo' , '~> 2.1'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
