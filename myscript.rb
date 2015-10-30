@@ -37,4 +37,4 @@ db[:Movies].find(:ID => '99').each {|document| puts document }
 puts '***************************************************************'
 puts 'Data obtained by retrieving query using non-primary key'
 
-db[:Movies].find(:Title => 'Interpol').each {|document| puts document 
+db[:Movies].find(:Title => 'Interpol').each {|document| puts document }
