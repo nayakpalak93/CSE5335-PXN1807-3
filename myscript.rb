@@ -11,8 +11,11 @@ var = 0
 
 quotes="'"
 
+mongohq_url = ENV['mongodb://<mydata>:<7070>@ds045664.mongolab.com:45664/heroku_5x71tdz7']
+client = Mongo::Client.new(mongohq_url);
 
-db = Mongo::Connection.new.db("Movies")
+
+
 
 while i < num  do
 
