@@ -1,44 +1,77 @@
-require 'json'
-require 'open-uri'
-require 'rubygems'
-require 'mongo'
+#!/usr/bin/ruby
 
-include Mongo
+# Copyright (c) 2015 ObjectLabs Corporation
+# Distributed under the MIT license - http://opensource.org/licenses/MIT
 
-i = 0
-num = 100
-var = 0
+# Written with mongo 1.9.2
+# Documentation: http://api.mongodb.org/ruby/
+# A ruby script connecting to a MongoDB database given a MongoDB Connection URI.
 
-quotes="'"
+require "mongo"
+require "json"
 
-mongohq_url = ENV['mongodb://<mydata>:<7070>@ds045664.mongolab.com:45664/heroku_5x71tdz7']
-client = Mongo::Client.new(mongohq_url);
+### Create seed data
 
+seed_data = [
+  {
+    'decade' => '1970s',
+    'artist' => 'Debby Boone',
+    'song' => 'You Light Up My Life',
+    'weeksAtOne' => 10
+  },
+  {
+    'decade' => '1980s',
+    'artist' => 'Olivia Newton-John',
+    'song' => 'Physical',
+    'weeksAtOne' => 10
+  },
+  {
+    'decade' => '1990s',
+    'artist' => 'Mariah Carey',
+    'song' => 'One Sweet Day',
+    'weeksAtOne' => 16
+  }
+]
 
+### Standard URI format: mongodb://[dbuser:dbpassword@]host:port/dbname
 
+uri = "mongodb://user:pass@host:port/db"
 
-while i < num  do
+client = Mongo::MongoClient.from_uri(uri)
 
-    data = JSON.parse(open("http://ws.audioscrobbler.com/2.0/?method=artist.getsimilar&artist=editors&api_key=4d7847876fa96f67f881aaf1b73e0e30&format=json").read)
-      
-      # iterate through the Array of returned artists and print their names                                                                                 
-        data["similarartists"]["artist"].each do |artist|
-	      #puts "#{testvar}"
-    	  insertintable = db[:Movies].insert_one({ID: var.to_s, Title: artist["name"]})
-      	   #  puts artist["name"];
-    	  var = var + 1;
-    	end
+db_name = uri[%r{/([^/\?]+)(\?|$)}, 1]
+db = client.db(db_name)
 
-    i = i + 1;
+# First we'll add a few songs. Nothing is required to create the songs 
+# collection; it is created automatically when we insert.
 
-end
-puts '***************************************************************'
-puts "total data obtained = #{var}"
-puts '***************************************************************'
-puts 'Data obtained by retrieving query using primary key'
-db[:Movies].find(:ID => '99').each {|document| puts document }
+songs = db.collection("songs")
 
-puts '***************************************************************'
-puts 'Data obtained by retrieving query using non-primary key'
+# Note that the insert method can take either an array or a single dict.
 
-db[:Movies].find(:Title => 'Interpol').each {|document| puts document }
+songs.insert(seed_data)
+
+# Then we need to give Boyz II Men credit for their contribution to
+# the hit "One Sweet Day"
+
+query = { 'song' => 'One Sweet Day' }
+
+songs.update(query, { '$set' => { 'artist' => 'Mariah Carey ft. Boyz II Men' } })
+
+# Finally we run a query which returns all the hits that spent 10 or
+# more weeks at number 1
+
+cursor = songs.find({ 'weeksAtOne' => { '$gte' => 10 } }).sort('decade', 1)
+
+cursor.each{ |doc| puts "In the #{ doc['decade'] }," +
+                        " #{ doc['song'] } by #{ doc['artist'] }" +
+                        " topped the charts for #{ doc['weeksAtOne'] }" +
+                        " straight weeks." }
+
+### Since this is an example, we"ll clean up after ourselves.
+
+songs.drop()
+
+### Only close the connection when your app is terminating
+
+client.close()
