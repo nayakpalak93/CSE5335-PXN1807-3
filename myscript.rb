@@ -35,12 +35,12 @@ seed_data = [
 
 ### Standard URI format: mongodb://[dbuser:dbpassword@]host:port/dbname
 
-uri = "mongodb://user:pass@host:port/db"
+uri = "mongodb://<mydata>:<7070>@ds045664.mongolab.com:45664/heroku_5x71tdz7"
 
 client = Mongo::MongoClient.from_uri(uri)
 
-db_name = uri[%r{/([^/\?]+)(\?|$)}, 1]
-db = client.db(db_name)
+
+db = client.db(heroku_5x71tdz7)
 
 # First we'll add a few songs. Nothing is required to create the songs 
 # collection; it is created automatically when we insert.
