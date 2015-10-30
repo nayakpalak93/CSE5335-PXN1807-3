@@ -11,7 +11,8 @@ var = 0
 
 quotes="'"
 
-db = Mongo::Client.new(['127.0.0.1:27017'],:database => 'Movies')
+
+db = Mongo::Connection.new.db("Movies")
 
 while i < num  do
 
