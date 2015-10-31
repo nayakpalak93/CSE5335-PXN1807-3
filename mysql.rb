@@ -3,7 +3,7 @@
 #http://zetcode.com/db/sqliteruby/connect/
 require 'json'
 require 'open-uri'
-require 'sqlite3'
+require 'pg'
 i = 0
 num = 100
 var = 1
