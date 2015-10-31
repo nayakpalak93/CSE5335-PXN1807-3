@@ -1,4 +1,5 @@
-require "dbi"
+require 'dbi'
+require 'pg'
 
 #retrieve data from data source.
 data = JSON.parse(open("http://ws.audioscrobbler.com/2.0/?method=artist.getsimilar&artist=editors&api_key=4d7847876fa96f67f881aaf1b73e0e30&format=json").read)
