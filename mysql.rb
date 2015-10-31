@@ -55,11 +55,6 @@ rs.each do |row|
 end
     
     
-rescue SQLite3::Exception => e
-    
-    puts "Exception occurred"
-    puts e
-
     
 
 end
