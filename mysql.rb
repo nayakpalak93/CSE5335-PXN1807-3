@@ -1,32 +1,65 @@
-require 'dbi'
-require 'pg'
+#class WelcomeController < ApplicationController
+# Referance : http://stackoverflow.com/questions/16765864/extract-json-values-from-remote-api-with-ruby
+#http://zetcode.com/db/sqliteruby/connect/
+require 'json'
+require 'open-uri'
+require 'sqlite3'
+i = 0
+num = 100
+var = 1
 
-#retrieve data from data source.
-data = JSON.parse(open("http://ws.audioscrobbler.com/2.0/?method=artist.getsimilar&artist=editors&api_key=4d7847876fa96f67f881aaf1b73e0e30&format=json").read)
-
+quotes="'"
 begin
-     # connect to the MySQL server
-     dbh = DBI.connect("postgres://wsfxsporhicczg:0P2B-Jg4GQ5BjP1CuB270ZI0y4@ec2-107-21-219-235.compute-1.amazonaws.com:5432/dakvjenroh6bs8", 
-	                    "wsfxsporhicczg", "0P2B-Jg4GQ5BjP1CuB270ZI0y4")
-	 
-	 i=1
-	 data["similarartists"]["artist"].each { |x|
-	 q=""
-	 value=q+x["name"]+q
-	     dbh.do("INSERT INTO TABLE ARTIST VALUES(#{i},#{value})")
-	     i+=1
-	 }
-	 puts "record added succesfully tomysql database........"
-	 dbh.commit
-	 
-rescue DBI::DatabaseError => e
-     puts "An error occurred"
-     puts "Error code:    #{e.err}"
-     puts "Error message: #{e.errstr}"
-     dbh.rollback
-ensure
-     # disconnect from server
-     dbh.disconnect if dbh
+db = SQLite3::Database.open "test.db"
+    db.execute "CREATE TABLE IF NOT EXISTS Movie(Id INTEGER PRIMARY KEY, Name TEXT)"
+    db.execute "DELETE FROM Movie"
+
+while i < num  do
+
+    data = JSON.parse(open("http://ws.audioscrobbler.com/2.0/?method=artist.getsimilar&artist=editors&api_key=4d7847876fa96f67f881aaf1b73e0e30&format=json").read)
+
+    
+      
+      # iterate through the Array of returned artists and print their names                                                                                 
+      data["similarartists"]["artist"].each do |artist|
+      # puts "1"	
+      testvar = quotes+artist["name"].tr('^A-Za-z0-9',' ')+quotes
+      
+      db.execute "INSERT INTO Movie VALUES(#{var},#{testvar})"
+      #  puts artist["name"];
+      puts "#{var}  #{testvar}"
+      var = var + 1;
+    end
+
+    i = i + 1;
 end
-	 
-	 
+puts "***************************************************************************"
+puts "total data = #{var}"
+puts "***************************************************************************"
+#end
+puts "data obtained by query from primary key value \s"
+stm = db.prepare "SELECT * FROM Movie WHERE Movie.Id = 99" 
+rs = stm.execute 
+    
+rs.each do |row|
+    puts row.join "\s"
+end
+puts "***************************************************************************\s"
+#end
+puts "data obtained by query from non primary key value"
+stm = db.prepare "SELECT * FROM Movie WHERE Movie.Name = 'Interpol'" 
+rs = stm.execute 
+    
+rs.each do |row|
+    puts row.join "\s"
+end
+    
+    
+rescue SQLite3::Exception => e
+    
+    puts "Exception occurred"
+    puts e
+
+    
+
+end
