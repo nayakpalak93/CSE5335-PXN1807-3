@@ -23,7 +23,7 @@ db=Mongo::Client.new(['ds045664.mongolab.com:45664'], :database => 'heroku_5x71t
 jsonobj=File.read('views.json')
 obj=JSON.parse(jsonobj)
 
-puts obj
+
 puts obj['id']
 #..........................................................my cide end here
 
