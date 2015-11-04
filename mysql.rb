@@ -1,4 +1,5 @@
 require 'pg'
+require 'JSON'
   
 # Output a table of current connections to the DB
 #conn = PG.connect( dbname: 'dakvjenroh6bs8',user:'wsfxsporhicczg',password:'0P2B-Jg4GQ5BjP1CuB270ZI0y4' )
