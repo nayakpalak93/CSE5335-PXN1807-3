@@ -28,7 +28,7 @@ $i=1
 while $i < 101 do
 
 
-result = client[:heroku_5x71tdz7].insert_one({
+result = db[:heroku_5x71tdz7].insert_one({
   id: '$i',
   name: obj[$i]["name"],
   createdAt: obj[$i]["createdAt"]
