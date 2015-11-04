@@ -24,6 +24,16 @@ jsonobj=File.read('views.json')
 obj=JSON.parse(jsonobj)
 
 puts obj
+puts obj['id']
+#..........................................................my cide end here
+
+
+
+
+
+
+
+
 
 
 
