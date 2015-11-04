@@ -24,7 +24,7 @@ jsonobj=File.read('views.json')
 obj=JSON.parse(jsonobj)
 
 i=1
-while $i < 101 do
+while $i > 101 do
 puts obj[$i]["id"]
 $i+=1
 end
