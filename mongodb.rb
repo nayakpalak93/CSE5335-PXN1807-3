@@ -23,8 +23,11 @@ db=Mongo::Client.new(['ds045664.mongolab.com:45664'], :database => 'heroku_5x71t
 jsonobj=File.read('views.json')
 obj=JSON.parse(jsonobj)
 
-
-puts obj[0]["id"]
+i=1
+while $i < 101 do
+puts obj[$i]["id"]
+$i+=1
+end
 #..........................................................my cide end here
 
 
