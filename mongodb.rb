@@ -17,7 +17,7 @@ uri = "mongodb://mydata:7070@ds045664.mongolab.com:45664/heroku_5x71tdz7"
 
 #client = Mongo::MongoClient.from_uri(uri)
 
-db=Mongo::Client.new(['ds045664.mongolab.com:45664'], :database => 'heroku_5x71tdz7')
+db=Mongo::Client.new(['ds045664.mongolab.com:45664'], :database => 'heroku_5x71tdz7', :user => 'testuser', :password => '7070')
 
 #db = client.db(heroku_5x71tdz7)
 
