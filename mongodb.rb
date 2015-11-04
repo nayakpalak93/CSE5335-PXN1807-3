@@ -13,7 +13,7 @@ require "json"
 # -------------------------------------------------my code starts here
 
 ### Standard URI format: mongodb://[dbuser:dbpassword@]host:port/dbname
-uri = "mongodb://<mydata>:<7070>@ds045664.mongolab.com:45664/heroku_5x71tdz7"
+uri = "mongodb://mydata:7070@ds045664.mongolab.com:45664/heroku_5x71tdz7"
 
 client = Mongo::MongoClient.from_uri(uri)
 
