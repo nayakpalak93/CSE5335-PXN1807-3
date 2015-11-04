@@ -23,7 +23,7 @@ $i=1
 
 jsonobj=File.read('views.json')
 obj=JSON.parse(jsonobj)
-
+for n in 0..3
 obj.each do |x|
 result = db[:heroku_5x71tdz7].insert_one({
   id: $i,
@@ -33,7 +33,7 @@ result = db[:heroku_5x71tdz7].insert_one({
 result.n 
 $i+=1
 end
-
+end
 =begin
 $i=1
 
