@@ -25,19 +25,21 @@ jsonobj=File.read('views.json')
 obj=JSON.parse(jsonobj)
 
 $i=1
-$id=1
 while $i < 101 do
-=begin
+
 db.mycollection.insert(
   {
-    "name" => obj[i]
+    "id" => "$i",
+    "name" => obj[$i]["name"],
+    "createdAt" => obj[$i]["createdAt"]
   }
   )
-=end
-puts obj[$i]["id"]
+
+#puts obj[$i]["id"]
 $i+=1
 end
 
+puts "data inserted.........................."
 #..........................................................my cide end here
 
 
