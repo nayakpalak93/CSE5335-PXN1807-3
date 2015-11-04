@@ -30,7 +30,7 @@ puts obj[$i]["id"]
 $count+=1
 $i+=1
 end
-puts $count
+puts count
 #..........................................................my cide end here
 
 
