@@ -25,6 +25,7 @@ jsonobj=File.read('views.json')
 obj=JSON.parse(jsonobj)
 
 $i=1
+for n in 1..4
 while $i < 101 do
 
 
@@ -38,7 +39,7 @@ result.n
 #puts obj[$i]["id"]
 $i+=1
 end
-
+end
 puts "data inserted.........................."
 #..........................................................my cide end here
 
