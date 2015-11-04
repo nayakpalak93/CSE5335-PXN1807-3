@@ -34,7 +34,7 @@ db.mycollection.insert(
   }
   )
 =end
-puts obj[i]["id"]
+puts obj[$i]["id"]
 $i+=1
 end
 
