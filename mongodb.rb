@@ -35,6 +35,7 @@ result = db[:heroku_5x71tdz7].insert_one({
 result.n 
 $i+=1
 end
+min+=1
 end
 =begin
 $i=1
