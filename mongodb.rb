@@ -8,7 +8,8 @@
 # A ruby script connecting to a MongoDB database given a MongoDB Connection URI.
 
 require "mongo"
-require "json"
+require 'open-uri'
+require 'json'
 include Mongo
 # -------------------------------------------------my code starts here
 
@@ -19,6 +20,12 @@ uri = "mongodb://mydata:7070@ds045664.mongolab.com:45664/heroku_5x71tdz7"
 
 db=Mongo::Client.new(['ds045664.mongolab.com:45664'], :database => 'heroku_5x71tdz7', :user => 'testuser', :password => '7070')
 
+
+result = JSON.parse(open("http://api.census.gov/data/2013/acs3/variables.json").read)
+
+puts result
+
+=begin
 $i=1
 
 jsonobj=File.read('views.json')
@@ -35,85 +42,8 @@ result.n
 $i+=1
 end
 
-obj.each do |x|
-result = db[:heroku_5x71tdz7].insert_one({
-  id: $i,
-  name: obj[$i]["name"],
-  createdAt: obj[$i]["createdAt"]
-})
-result.n 
-$i+=1
-end
-
-
-
-
-
-
-=begin
-$i=1
-
-while $i < 101 do
-
-
-result = db[:heroku_5x71tdz7].insert_one({
-  id: $i,
-  name: obj[$i]["name"],
-  createdAt: obj[$i]["createdAt"]
-})
-result.n 
-
-#puts obj[$i]["id"]
-$i+=1
-end
 =end
-puts "data inserted.........................."
-#..........................................................my cide end here
 
 
 
-
-
-
-
-
-
-
-
-#db = client.db(heroku_5x71tdz7)
-
-#fetching data from data sourse api and storing it intoo data variable
-#data = JSON.parse(open("http://ws.audioscrobbler.com/2.0/?method=artist.getsimilar&artist=editors&api_key=4d7847876fa96f67f881aaf1b73e0e30&format=json").read)
-
-#add data intodatabase
-=begin
-  raise 'A test exception.'
-rescue Exception => e
-  puts e.message
-  puts e.backtrace.inspect
-else
-  # other exception
-ensure
-  # always executed
-end
-i = 1
-data["similarartists"]["artist"].each { |x|
-  db.collection("atristsList").insert_one({ID: i.to_s, Title: x["name"]})
-  var += 1;
-}
-
-
-#fatchind data from database 
-# 1)by primary key:
-
-puts db.users.find( { 'id' => { '$eq'=> 9 } }, { 'ID'=> '1', 'Title'=> '1' } ).limit(100)
-
-songs.find({ 'weeksAtOne' => { '$gte' => 10 } }).sort('decade', 1)
-# 2)by non primary key
-
-puts db.users.find( { 'Title'=> { '$eq'=> 'The National' } }, { 'ID'=> '1', 'Title'=> '1' } )
-
-#---------------------------------------------------my code ends here
-
-=end
 
