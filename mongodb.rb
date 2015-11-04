@@ -29,7 +29,7 @@ while $i < 101 do
 
 
 result = db[:heroku_5x71tdz7].insert_one({
-  id: '$i',
+  id: $i,
   name: obj[$i]["name"],
   createdAt: obj[$i]["createdAt"]
 })
