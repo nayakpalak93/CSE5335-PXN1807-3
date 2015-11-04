@@ -27,13 +27,13 @@ obj=JSON.parse(jsonobj)
 $i=1
 while $i < 101 do
 
-db.mycollection.insert(
-  {
-    "id" => "$i",
-    "name" => obj[$i]["name"],
-    "createdAt" => obj[$i]["createdAt"]
-  }
-  )
+
+result = client[:heroku_5x71tdz7].insert_one({
+  id: '$i',
+  name: obj[$i]["name"],
+  createdAt: obj[$i]["createdAt"]
+})
+result.n 
 
 #puts obj[$i]["id"]
 $i+=1
