@@ -19,13 +19,30 @@ uri = "mongodb://mydata:7070@ds045664.mongolab.com:45664/heroku_5x71tdz7"
 
 db=Mongo::Client.new(['ds045664.mongolab.com:45664'], :database => 'heroku_5x71tdz7', :user => 'testuser', :password => '7070')
 
+
+jsonobj=File.read('views.json')
+obj=JSON.parse(jsonobj)
+
+puts obj
+
+
+
 #db = client.db(heroku_5x71tdz7)
 
 #fetching data from data sourse api and storing it intoo data variable
-data = JSON.parse(open("http://ws.audioscrobbler.com/2.0/?method=artist.getsimilar&artist=editors&api_key=4d7847876fa96f67f881aaf1b73e0e30&format=json").read)
+#data = JSON.parse(open("http://ws.audioscrobbler.com/2.0/?method=artist.getsimilar&artist=editors&api_key=4d7847876fa96f67f881aaf1b73e0e30&format=json").read)
 
 #add data intodatabase
-
+=begin
+  raise 'A test exception.'
+rescue Exception => e
+  puts e.message
+  puts e.backtrace.inspect
+else
+  # other exception
+ensure
+  # always executed
+end
 i = 1
 data["similarartists"]["artist"].each { |x|
   db.collection("atristsList").insert_one({ID: i.to_s, Title: x["name"]})
@@ -45,5 +62,5 @@ puts db.users.find( { 'Title'=> { '$eq'=> 'The National' } }, { 'ID'=> '1', 'Tit
 
 #---------------------------------------------------my code ends here
 
-
+=end
 
