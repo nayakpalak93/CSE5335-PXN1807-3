@@ -19,7 +19,10 @@ uri = "mongodb://mydata:7070@ds045664.mongolab.com:45664/heroku_5x71tdz7"
 
 db=Mongo::Client.new(['ds045664.mongolab.com:45664'], :database => 'heroku_5x71tdz7', :user => 'testuser', :password => '7070')
 
-
+ data = JSON.parse(open("http://ws.audioscrobbler.com/2.0/?method=artist.getsimilar&artist=editors&api_key=4d7847876fa96f67f881aaf1b73e0e30&format=json").read)
+        
+        puts data
+=begin
 jsonobj=File.read('views.json')
 obj=JSON.parse(jsonobj)
 
@@ -30,6 +33,7 @@ puts obj[$i]["id"]
 $count+=1
 $i+=1
 end
+=end
 puts "#{count}"
 #..........................................................my cide end here
 
