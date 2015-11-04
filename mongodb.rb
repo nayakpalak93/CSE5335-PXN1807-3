@@ -9,7 +9,7 @@
 
 require "mongo"
 require "json"
-
+include Mongo
 # -------------------------------------------------my code starts here
 
 ### Standard URI format: mongodb://[dbuser:dbpassword@]host:port/dbname
