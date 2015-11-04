@@ -24,10 +24,13 @@ jsonobj=File.read('views.json')
 obj=JSON.parse(jsonobj)
 
 $i=1
+$count=1
 while $i < 101 do
 puts obj[$i]["id"]
+$count+=1
 $i+=1
 end
+puts $count
 #..........................................................my cide end here
 
 
