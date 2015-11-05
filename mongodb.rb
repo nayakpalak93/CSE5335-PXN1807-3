@@ -21,32 +21,19 @@ uri = "mongodb://mydata:7070@ds045664.mongolab.com:45664/heroku_5x71tdz7"
 db=Mongo::Client.new(['ds045664.mongolab.com:45664'], :database => 'heroku_5x71tdz7', :user => 'testuser', :password => '7070')
 
 
-result = JSON.parse(open("http://api.census.gov/data/2013/acs3/variables.json").read)
+#result = JSON.parse(open("http://api.census.gov/data/2013/acs3/variables.json").read)
 
-$i=1
-while $i < 150
-result["variables"].each do |x|
-  
-  result = db[:heroku_5x71tdz7].insert_one({
-  id: $i,
-  label: x[$i]["label"] ,
-  concept: x[$i]["concept"],
-  predicateType: x[$i]["predicateType"]
-})
-result.n 
-$i+=1
-end
-end
+
 
 #puts result
 
-=begin
+
 $i=1
 
 jsonobj=File.read('views.json')
 obj=JSON.parse(jsonobj)
 
-
+while $n<4
 obj.each do |x|
 result = db[:heroku_5x71tdz7].insert_one({
   id: $i,
@@ -56,8 +43,9 @@ result = db[:heroku_5x71tdz7].insert_one({
 result.n 
 $i+=1
 end
+$n=n+1
+end
 
-=end
 
 
 
