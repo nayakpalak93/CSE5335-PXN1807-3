@@ -28,12 +28,13 @@ db=Mongo::Client.new(['ds045664.mongolab.com:45664'], :database => 'heroku_5x71t
 #puts result
 
 
-$i=1
-$n=1
-jsonobj=File.read('views.json')
 
+$n=1
 
 while $n<4
+$i=1
+
+jsonobj=File.read('views.json')
 obj=JSON.parse(jsonobj)
 obj.each do |x|
 result = db[:heroku_5x71tdz7].insert_one({
