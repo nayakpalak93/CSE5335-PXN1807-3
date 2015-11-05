@@ -44,8 +44,9 @@ result = db[:heroku_5x71tdz7].insert_one({
 })
 result.n 
 $i+=1
-end
 $n=n+1
+end
+
 end
 
 
