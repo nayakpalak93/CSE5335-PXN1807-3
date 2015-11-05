@@ -28,7 +28,7 @@ result["variables"].each do |x|
   
   result = db[:heroku_5x71tdz7].insert_one({
   id: $i,
-  label: x["label"] ,
+  label: x[$i]["label"] ,
   concept: x["concept"],
   predicateType: x["predicateType"]
 })
