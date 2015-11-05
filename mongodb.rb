@@ -24,10 +24,10 @@ id: result["data"][$i][0],
 year: result["data"][$i][10],
 sex: result["data"][$i][11]
 })
-n.n
 $i+=1
 end
 
+puts "Data Stored in MongoDB database successfully.............."
 =begin
 
 $i=1
