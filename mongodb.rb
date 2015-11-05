@@ -31,7 +31,7 @@ end
 puts "Data Stored in MongoDB database successfully.............."
 
 puts "Fatchong data from database by unique ID............."
-db[:heroku_5x71tdz7].find(:unique => '22').each {|d| puts d }
+db[:heroku_5x71tdz7].find(:unique => '22')
 
 =begin
 puts "Fatchong data from database by nonprimary key............."
