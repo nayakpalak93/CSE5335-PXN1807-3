@@ -19,8 +19,9 @@ db=Mongo::Client.new(['ds045664.mongolab.com:45664'], :database => 'heroku_5x71t
 result = JSON.parse(open("https://cdph.data.ca.gov/api/views/yijp-bauh/rows.json?accessType=DOWNLOAD").read)
 
 
+puts result["data"][0][0]
+puts result["data"][1][0]
 
-puts result
 =begin
 
 $i=1
