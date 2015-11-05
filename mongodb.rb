@@ -20,7 +20,7 @@ result = JSON.parse(open("https://cdph.data.ca.gov/api/views/yijp-bauh/rows.json
 $i=1
 while $i < 110 do
 n = db[:heroku_5x71tdz7].insert_one({
-id: result["data"][$i][0],
+unique: result["data"][$i][0],
 year: result["data"][$i][10],
 sex: result["data"][$i][11]
 })
@@ -31,7 +31,7 @@ end
 puts "Data Stored in MongoDB database successfully.............."
 
 puts "Fatchong data from database by unique ID............."
-db[:heroku_5x71tdz7].find({:id =>{ $gt =>'22'}},{:year =>1,:sex =>1})
+db[:heroku_5x71tdz7].find(:unique => '22').each {|d| puts d }
 
 puts "Fatchong data from database by nonprimary key............."
 db[:heroku_5x71tdz7].find(:year => '2002').each {|data| puts data }
