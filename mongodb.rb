@@ -29,7 +29,7 @@ db=Mongo::Client.new(['ds045664.mongolab.com:45664'], :database => 'heroku_5x71t
 
 
 $i=1
-
+$n=1
 jsonobj=File.read('views.json')
 obj=JSON.parse(jsonobj)
 
