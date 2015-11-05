@@ -35,7 +35,7 @@ db[:heroku_5x71tdz7].find(:ID => '22').each {|data| puts data }
 
 puts "Fatchong data from database by nonprimary key............."
 db[:heroku_5x71tdz7].find(:year => '2002').each {|data| puts data }
-puts q
+
 =begin
 
 $i=1
