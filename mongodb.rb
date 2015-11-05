@@ -20,7 +20,7 @@ result = JSON.parse(open("https://cdph.data.ca.gov/api/views/yijp-bauh/rows.json
 $i=1
 while $i < 110 do
 n = db[:heroku_5x71tdz7].insert_one({
-unique: result["data"][$i][0],
+unique: $i,
 year: result["data"][$i][10],
 sex: result["data"][$i][11]
 })
