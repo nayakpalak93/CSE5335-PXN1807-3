@@ -17,14 +17,15 @@ db=Mongo::Client.new(['ds045664.mongolab.com:45664'], :database => 'heroku_5x71t
 
 
 result = JSON.parse(open("https://cdph.data.ca.gov/api/views/yijp-bauh/rows.json?accessType=DOWNLOAD").read)
-
-for i in 0..100 do
+$i=1
+while $i < 110 do
 n = db[:heroku_5x71tdz7].insert_one({
 id: result["data"][$i][0],
 year: result["data"][$i][10],
 sex: result["data"][$1][11]
 })
 n.n
+$i+=1
 end
 
 =begin
