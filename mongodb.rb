@@ -24,10 +24,15 @@ id: result["data"][$i][0],
 year: result["data"][$i][10],
 sex: result["data"][$i][11]
 })
+n.n
 $i+=1
 end
 
 puts "Data Stored in MongoDB database successfully.............."
+
+q=db.heroku_5x71tdz7.find({},{id:1,year:1,sex:1})
+puts "Fatchong data from database............."
+puts q
 =begin
 
 $i=1
