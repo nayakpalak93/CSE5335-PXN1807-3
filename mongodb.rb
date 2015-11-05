@@ -22,7 +22,7 @@ while $i < 110 do
 n = db[:heroku_5x71tdz7].insert_one({
 id: result["data"][$i][0],
 year: result["data"][$i][10],
-sex: result["data"][$1][11]
+sex: result["data"][$i][11]
 })
 n.n
 $i+=1
