@@ -11,31 +11,24 @@ require "mongo"
 require 'open-uri'
 require 'json'
 include Mongo
-# -------------------------------------------------my code starts here
 
-### Standard URI format: mongodb://[dbuser:dbpassword@]host:port/dbname
-uri = "mongodb://mydata:7070@ds045664.mongolab.com:45664/heroku_5x71tdz7"
-
-#client = Mongo::MongoClient.from_uri(uri)
 
 db=Mongo::Client.new(['ds045664.mongolab.com:45664'], :database => 'heroku_5x71tdz7', :user => 'testuser', :password => '7070')
 
 
-#result = JSON.parse(open("http://api.census.gov/data/2013/acs3/variables.json").read)
+result = JSON.parse(open("https://cdph.data.ca.gov/api/views/yijp-bauh/rows.json?accessType=DOWNLOAD").read)
 
 
 
-#puts result
+puts result
+=begin
 
-
-
-$n=1
-
-while $n<4
 $i=1
-
+$n=1
 jsonobj=File.read('views.json')
 obj=JSON.parse(jsonobj)
+
+while $n<4
 obj.each do |x|
 result = db[:heroku_5x71tdz7].insert_one({
   id: $i,
@@ -44,12 +37,11 @@ result = db[:heroku_5x71tdz7].insert_one({
 })
 result.n 
 $i+=1
+end
 $n=n+1
 end
 
-end
-
-
+=end
 
 
 
