@@ -23,7 +23,8 @@ db=Mongo::Client.new(['ds045664.mongolab.com:45664'], :database => 'heroku_5x71t
 
 result = JSON.parse(open("http://api.census.gov/data/2013/acs3/variables.json").read)
 
-$i=0
+$i=1
+while $i < 150
 result["variables"].each do |x|
   
   result = db[:heroku_5x71tdz7].insert_one({
@@ -35,7 +36,7 @@ result["variables"].each do |x|
 result.n 
 $i+=1
 end
-  
+end
 
 #puts result
 
