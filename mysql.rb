@@ -26,7 +26,7 @@ puts "Values inserted into SQLTABLE successfully..............................."
 
 puts "fatching value from table where primary key index=7 ....................................."
 
-fatchById="SELECT year,sex,Id FROM MYSQLTABLE WHERE index=7"
+fatchById="SELECT * FROM MYSQLTABLE WHERE index=7"
 
 rs=con.exec(fatchById)
 
