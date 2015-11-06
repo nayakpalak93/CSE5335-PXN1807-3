@@ -34,6 +34,7 @@ gem 'spring',        group: :development
 #gem 'puma'
 gem 'mongo' , '~> 2.1'
 gem 'json' , '~> 1.8.3'
+gem 'redis'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
