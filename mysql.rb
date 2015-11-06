@@ -27,7 +27,7 @@ puts "fatching value from table where ID=7 .....................................
 
 fatch="SELECT year,sex FROM MYSQLTABLE WHERE Id=7"
 
-con.query(fatch)
+rs=con.query(fatch)
  
 n_rows = rs.num_rows
     
