@@ -47,12 +47,12 @@ fatchByYear = "SELECT * FROM MYSQLTABLE WHERE year=2002"
 
 rs1=con.exec(fatchByYear)
 
-result={}
+results={}
 
 rs1.each do |row|
-    result["Index"]=row['index']
-  result["Year"] = row['year']
-  result["Sex"] = row['sex']
+    results["Index"]=row['index']
+  results["Year"] = row['year']
+  results["Sex"] = row['sex']
   puts result
 end
 
