@@ -49,6 +49,7 @@ rs1=con.exec(fatchByYear)
 result={}
 
 rs1.each do |row|
+    result["ID"]=row['Id']
   result["year"] = row['year']
   result["sex"] = row['sex']
 end
