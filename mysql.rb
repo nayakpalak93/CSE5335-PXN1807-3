@@ -7,11 +7,11 @@ con = PG.connect :dbname => 'dakvjenroh6bs8', :user => 'wsfxsporhicczg', :passwo
 
 result = JSON.parse(open("https://cdph.data.ca.gov/api/views/yijp-bauh/rows.json?accessType=DOWNLOAD").read)
 con.exec("DROP TABLE MYSQLTABLE")
-puts "Creating Table.........................................................."
+puts "Creating Table..."
 create_table="CREATE TABLE IF NOT EXISTS MYSQLTABLE(index INTEGER PRIMARY KEY, year INTEGER,sex TEXT)"
 con.exec(create_table)
 con.exec("DELETE FROM MYSQLTABLE")
-puts "Inserting values into SQLTABLE.........................................."
+puts "Inserting values into SQLTABLE..."
 $i=1
 while $i < 110 do
 
@@ -22,9 +22,9 @@ while $i < 110 do
     $i+=1
 
 end
-puts "Values inserted into SQLTABLE successfully..............................."
+puts "Values inserted into SQLTABLE successfully..."
 
-puts "fatching value from table where primary key index=7 ....................................."
+puts "fatching value from table where PRIMARY KEY INDEX=7 ..."
 
 fatchById="SELECT * FROM MYSQLTABLE WHERE index=7"
 
@@ -53,6 +53,7 @@ rs1.each do |row|
     result["Index"]=row['index']
   result["Year"] = row['year']
   result["Sex"] = row['sex']
+  puts result
 end
 
-puts result
+#puts result
