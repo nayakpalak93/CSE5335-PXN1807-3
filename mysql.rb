@@ -53,7 +53,7 @@ rs1.each do |row|
     results["Index"]=row['index']
   results["Year"] = row['year']
   results["Sex"] = row['sex']
-  puts result
+  puts results
 end
 
 #puts result
