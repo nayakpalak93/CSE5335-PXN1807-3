@@ -24,7 +24,11 @@ end
 puts "Values inserted into SQLTABLE successfully..............................."
 
 puts "fatching value from table where ID=7 ....................................."
-fatch="SELECT year,sex FROM MYSQLTABLE WHERE Id=7"
-var=con.exec(fatch)
+
+#fatch="SELECT year,sex FROM MYSQLTABLE WHERE Id=7"
+#var=con.exec(fatch)
+
+var=con.find(7)
 puts var
+
 puts "value fatched successfully................................................"
