@@ -27,15 +27,16 @@ puts "fatching value from table where ID=7 .....................................
 
 fatch="SELECT year,sex FROM MYSQLTABLE WHERE Id=7"
 
-con.query(fatch, def function(err, rows, fields) 
-    
-    for i in rows do
-        console.log('year: ', rows[i].year);
-    end
-end
-);
+con.query(fatch)
  
+n_rows = rs.num_rows
+    
+puts "There are #{n_rows} rows in the result set"
+    
+n_rows.times do
+        puts rs.fetch_row.join("\s")
+end
 
-puts var
+
 
 puts "value fatched successfully................................................"
