@@ -9,7 +9,7 @@ result = JSON.parse(open("https://cdph.data.ca.gov/api/views/yijp-bauh/rows.json
 puts "Creating Table.........................................................."
 create_table="CREATE TABLE IF NOT EXISTS MYSQLTABLE(Id INTEGER PRIMARY KEY, year INTEGER,sex TEXT)"
 con.exec(create_table)
-
+con.exec("DELETE FROM MYSQLTABLE")
 puts "Inserting values into SQLTABLE.........................................."
 $i=1
 while $i < 110 do
