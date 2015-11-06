@@ -22,3 +22,9 @@ while $i < 110 do
 
 end
 puts "Values inserted into SQLTABLE successfully..............................."
+
+puts "fatching value from table where ID=7 ....................................."
+fatch="SELECT year,sex FROM MYSQLTABLE WHERE Id=7"
+con.exec(fatch)
+
+puts "value fatched successfully................................................"
