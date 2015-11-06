@@ -6,9 +6,9 @@ require 'open-uri'
 con = PG.connect :dbname => 'dakvjenroh6bs8', :user => 'wsfxsporhicczg', :password => '0P2B-Jg4GQ5BjP1CuB270ZI0y4', :host =>'ec2-107-21-219-235.compute-1.amazonaws.com'
 
 result = JSON.parse(open("https://cdph.data.ca.gov/api/views/yijp-bauh/rows.json?accessType=DOWNLOAD").read)
-
+con.exec("DROP TABLE MYSQLTABLE")
 puts "Creating Table.........................................................."
-create_table="CREATE TABLE IF NOT EXISTS MYSQLTABLE(index INTEGER, year INTEGER,sex TEXT)"
+create_table="CREATE TABLE IF NOT EXISTS MYSQLTABLE(index INTEGER PRIMARY KEY, year INTEGER,sex TEXT)"
 con.exec(create_table)
 con.exec("DELETE FROM MYSQLTABLE")
 puts "Inserting values into SQLTABLE.........................................."
