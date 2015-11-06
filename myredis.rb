@@ -7,5 +7,5 @@ redis = Redis.new(:host => "ec2-54-83-199-200.compute-1.amazonaws.com", :port =>
 #fatch fromdata sourse API and store in a variable
 result = JSON.parse(open("https://cdph.data.ca.gov/api/views/yijp-bauh/rows.json?accessType=DOWNLOAD").read)
 
-redis.set "foo", [1, 2, 3].to_json
-JSON.parse(redis.get("foo"))
+r['foo'] = 'bar'
+puts r['foo']
