@@ -8,7 +8,7 @@ result = JSON.parse(open("https://cdph.data.ca.gov/api/views/yijp-bauh/rows.json
 
 puts "Creating Table.........................................................."
 create_table="CREATE TABLE SQLTABLE(Id INTEGER PRIMARY KEY, year INTEGER,sex TEXT)"
-con.exec(query)
+con.exec(create_table)
 
 puts "Inserting values into SQLTABLE.........................................."
 $i=1
