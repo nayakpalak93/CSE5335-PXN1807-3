@@ -43,7 +43,7 @@ puts my_results
 
 puts "fatching rows of database where year is 2002"
 
-fatchByYear = "SELECT Id,year,sex FROM MYSQLTABLE WHERE year=2002"
+fatchByYear = "SELECT * FROM MYSQLTABLE WHERE year=2002"
 
 rs1=con.exec(fatchByYear)
 
