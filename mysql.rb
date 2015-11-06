@@ -26,7 +26,16 @@ puts "Values inserted into SQLTABLE successfully..............................."
 puts "fatching value from table where ID=7 ....................................."
 
 fatch="SELECT year,sex FROM MYSQLTABLE WHERE Id=7"
-var=con.query(fatch)
+
+con.query(fatch, def function(err, rows, fields) 
+    
+    for i in rows do
+        console.log('year: ', rows[i].year);
+    end
+end
+);
+ 
+
 puts var
 
 puts "value fatched successfully................................................"
