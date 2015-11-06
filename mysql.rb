@@ -7,7 +7,7 @@ con = PG.connect :dbname => 'dakvjenroh6bs8', :user => 'wsfxsporhicczg', :passwo
 result = JSON.parse(open("https://cdph.data.ca.gov/api/views/yijp-bauh/rows.json?accessType=DOWNLOAD").read)
 
 puts "Creating Table.........................................................."
-create_table="CREATE TABLE MYSQLTABLE(Id INTEGER PRIMARY KEY, year INTEGER,sex TEXT)"
+create_table="CREATE TABLE IF NOT EXISTS MYSQLTABLE(Id INTEGER PRIMARY KEY, year INTEGER,sex TEXT)"
 con.exec(create_table)
 
 puts "Inserting values into SQLTABLE.........................................."
