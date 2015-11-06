@@ -1,3 +1,5 @@
+require 'json'
+require 'open-uri'
 
 #fatch fromdata sourse API and store in a variable
 result = JSON.parse(open("https://cdph.data.ca.gov/api/views/yijp-bauh/rows.json?accessType=DOWNLOAD").read)
