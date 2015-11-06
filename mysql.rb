@@ -26,13 +26,14 @@ puts "Values inserted into SQLTABLE successfully..............................."
 
 puts "fatching value from table where ID=7 ....................................."
 
-fatchById="SELECT year,sex FROM MYSQLTABLE WHERE Id=7"
+fatchById="SELECT year,sex,Id FROM MYSQLTABLE WHERE Id=7"
 
 rs=con.exec(fatchById)
 
 my_results = {}
 
 rs.each do |row|
+     my_results["Id"] = row['Id']
   my_results["year"] = row['year']
   my_results["sex"] = row['sex']
 end
