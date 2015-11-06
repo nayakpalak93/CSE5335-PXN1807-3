@@ -28,16 +28,16 @@ puts "fatching value from table where ID=7 .....................................
 
 fatch="SELECT year,sex FROM MYSQLTABLE WHERE Id=7"
 
-rs=con.query(fatch)
- 
-n_rows = rs.num_rows
-    
-puts "There are #{n_rows} rows in the result set"
-    
-n_rows.times do
-        puts rs.fetch_row.join("\s")
+rs=con.exec(fatch)
+
+my_results = {}
+
+rs.each do |row|
+  my_results[row['year']] = row['year']
+  my_results[row['sex']] = row['sex']
 end
 
-
+ 
+puts my_results
 
 puts "value fatched successfully................................................"
