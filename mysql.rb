@@ -33,8 +33,8 @@ rs=con.exec(fatchById)
 my_results = {}
 
 rs.each do |row|
-  my_results[year] = row['year']
-  my_results[sex] = row['sex']
+  my_results["year"] = row['year']
+  my_results["sex"] = row['sex']
 end
 
  
@@ -49,8 +49,8 @@ rs1=con.exec(fatchByYear)
 result={}
 
 rs1.each do |row|
-  result[year] = row['year']
-  result[sex] = row['sex']
+  result["year"] = row['year']
+  result["sex"] = row['sex']
 end
 
 puts result
