@@ -18,7 +18,7 @@ while $i < 110 do
     $sex=result["data"][$i][11]
     insert_table="INSERT INTO MYSQLTABLE VALUES('#{$i}','#{$year}','#{$sex}')"
     con.exec(insert_table)
-    i+=1
+    $i+=1
 
 end
 puts "Values inserted into SQLTABLE successfully..............................."
