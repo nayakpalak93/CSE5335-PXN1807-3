@@ -24,7 +24,6 @@ unique: $i,
 year: result["data"][$i][10],
 sex: result["data"][$i][11]
 })
-n.n
 $i+=1
 end
 
