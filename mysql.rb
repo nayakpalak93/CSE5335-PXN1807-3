@@ -32,7 +32,7 @@ end
 puts "Values inserted into SQLTABLE successfully..."
 
 puts "Enter Index you want to retrieve.."
-$index=get.chomp
+$index=gets.chomp
 
 #fatching data from table
 fatchById="SELECT * FROM MYSQLTABLE WHERE index=#{$index}"
