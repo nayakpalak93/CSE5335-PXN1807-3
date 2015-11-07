@@ -37,7 +37,7 @@ db[:heroku_5x71tdz7].find(:unique => $id).each {|data| puts data }
 
 puts "Enter a year to get data of that year.."
 $year=gets.chomp
-db[:heroku_5x71tdz7].find(:year => $year).each {|data| puts data }
+db[:heroku_5x71tdz7].find(:year => '2000').each {|data| puts data }
 
 =begin
 
