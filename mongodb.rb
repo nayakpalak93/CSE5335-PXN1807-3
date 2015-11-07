@@ -40,29 +40,7 @@ puts "Enter the unique primary key to retrieve the data.."
 $uni=gets.chomp
 puts $uni
 db[:heroku_5x71tdz7].find('unique' => $uni).each {|data1| 
-puts data1}
-
-=begin
-
-$i=1
-$n=1
-jsonobj=File.read('views.json')
-obj=JSON.parse(jsonobj)
-
-while $n<4
-obj.each do |x|
-result = db[:heroku_5x71tdz7].insert_one({
-  id: $i,
-  name: obj[$i]["name"],
-  createdAt: obj[$i]["createdAt"]
-})
-result.n 
-$i+=1
-end
-$n=n+1
-end
-
-=end
-
-
+puts data1.unique
+  puts data1.year
+}
 
