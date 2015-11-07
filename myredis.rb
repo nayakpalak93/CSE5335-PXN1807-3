@@ -15,4 +15,5 @@ redis.hset "row#{$i}","index",$i
 redis.hset "row#{$i}","year", $year
 redis.hset "row#{$i}","year", $sex
 puts redis.hgetall "row#{$i}"
+$i+=1
 end
