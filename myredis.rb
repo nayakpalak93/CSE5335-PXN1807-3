@@ -14,7 +14,7 @@ while $i < 110 do
     $sex=result["data"][$i][11]
 redis.hset "row#{$i}","index",$i
 redis.hset "row#{$i}","year", $year
-redis.hset "row#{$i}","year", $sex
+redis.hset "row#{$i}","sex", $sex
 puts redis.hgetall "row#{$i}"
 $i+=1
 end
