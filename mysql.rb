@@ -31,10 +31,11 @@ while $i < 110 do
 end
 puts "Values inserted into SQLTABLE successfully..."
 
-puts "fatching value from table where PRIMARY KEY INDEX=7 ..."
+puts "Enter Index you want to retrieve.."
+$index=get.chomp
 
 #fatching data from table
-fatchById="SELECT * FROM MYSQLTABLE WHERE index=7"
+fatchById="SELECT * FROM MYSQLTABLE WHERE index=#{$index}"
 
 rs=con.exec(fatchById)
 
@@ -49,9 +50,10 @@ end
  
 puts my_results
 
-puts "fatching rows of database where year is 2002"
+puts "Enter a year to get data of that year.."
+$year=gets.chomp
 
-fatchByYear = "SELECT * FROM MYSQLTABLE WHERE year=2002"
+fatchByYear = "SELECT * FROM MYSQLTABLE WHERE year=#{$year}"
 
 rs1=con.exec(fatchByYear)
 
