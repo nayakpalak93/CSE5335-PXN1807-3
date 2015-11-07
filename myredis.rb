@@ -7,6 +7,7 @@ redis = Redis.new(:host => "ec2-54-83-199-200.compute-1.amazonaws.com", :port =>
 #fatch fromdata sourse API and store in a variable
 result = JSON.parse(open("https://cdph.data.ca.gov/api/views/yijp-bauh/rows.json?accessType=DOWNLOAD").read)
 
+#storing values intoredis database on heroku
 $i=1
 while $i < 110 do
     $year=result["data"][$i][10]
@@ -17,3 +18,12 @@ redis.hset "row#{$i}","year", $sex
 puts redis.hgetall "row#{$i}"
 $i+=1
 end
+
+puts "values stored to Redis database successfully"
+
+#fatching value from database
+
+puts "Enter index you want to retrieve.."
+$index=gets.chomp
+
+puts redis.hgetall "row#{$index}"
