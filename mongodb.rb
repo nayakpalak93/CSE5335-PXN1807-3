@@ -37,9 +37,9 @@ puts data }
 
 
 puts "Enter the unique primary key to retrieve the data.."
-$id=gets.chomp
+$uni=gets.chomp
 
-db[:heroku_5x71tdz7].find('unique' => $id).each {|data| 
+db[:heroku_5x71tdz7].find('unique' => $uni).each {|data| 
 puts data}
 
 =begin
