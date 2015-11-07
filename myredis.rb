@@ -8,4 +8,4 @@ redis = Redis.new(:host => "ec2-54-83-199-200.compute-1.amazonaws.com", :port =>
 result = JSON.parse(open("https://cdph.data.ca.gov/api/views/yijp-bauh/rows.json?accessType=DOWNLOAD").read)
 
 redis.hset 'mykey','key','value1'
-redis.hgetall 'mykey'
+puts redis.hgetall 'mykey'
