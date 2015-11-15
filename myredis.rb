@@ -27,3 +27,16 @@ puts "Enter index you want to retrieve.."
 $index=gets.chomp
 
 puts redis.hgetall "row#{$index}"
+
+
+puts "Enter a year to get data of that year"
+$y=gets.chomp
+
+while $i < 110 do
+$i=1
+$temp_y=redis.hget "row#{$i}",year
+if $temp_y == $y
+    puts redis.hget "row#{$i}"
+end
+$i+=1
+end
