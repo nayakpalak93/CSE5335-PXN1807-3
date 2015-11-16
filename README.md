@@ -1,64 +1,41 @@
-# ruby-getting-started
+# PROJECT PHASE 2
+***
+### NAME : NAYAK PALAK ASHOKBHAI
+### Student ID: 1001241807
+***
 
-A barebones Rails app, which can easily be deployed to Heroku.
+#### 1) What is your external data source used to  populate your Heroku data source?
 
-This application support the [Getting Started with Ruby on Heroku](https://devcenter.heroku.com/articles/getting-started-with-ruby) article - check it out.
+I have used "Infectious Disease Cases by County, Year, and Sex, 2001-2014" data source from http://www.data.gov/developers/apis web service.  
+To open data source i have used [click here](https://cdph.data.ca.gov/api/views/yijp-bauh/rows.json?accessType=DOWNLOAD).
 
-## Running Locally
+#### 2) What are the heroku toolbelt command to execute the the script?
 
-Make sure you have Ruby installed.  Also, install the [Heroku Toolbelt](https://toolbelt.heroku.com/).
+-Unzip the project file in User directory having ruby on rails.
 
-```sh
-$ git clone git@github.com:heroku/ruby-getting-started.git
-$ cd ruby-getting-started
-$ bundle install
-$ bundle exec rake db:create db:migrate
-$ foreman start web
-```
+1.cd cse5335-pxn1807-2  
+  
+2.bundle install  
+  
+3.heroku run bash  
+  
+4.ruby mysql.rb  
+=> After run this command, enter Index between 1 to 109 to retrieve data based on primary unique key. Later, enter year between 2001 and 2014 to retrieve data based upon non-primary key.  
+  
+5.ruby mongodb.rb  
+=> After run this command, enter Index between 1 to 109 to retrieve data based on primary unique key. Later, enter year between 2001 and 2014 to retrieve data based upon non-primary key.  
+  
+6.ruby myredis.rb  
+=> After run this command, enter Index between 1 to 109 to retrieve data based on primary unique key. Later, enter year between 2001 and 2014 to retrieve data based upon non-primary key.  
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
+### 3) What aspect of implementation did you find easy,and why?
 
-## Deploying to Heroku
+once connected to database on heroku, I found it easy to store and fetch data from database.  
 
-```sh
-$ heroku create
-$ git push heroku master
-$ heroku run rake db:migrate
-$ heroku open
-```
+### 4)What aspect of implementation did you find hard,and why?  
 
-## Docker
+Understanding of methods of storage on each database type is little difficult as each database stores data in different way such as Redis stores data in the form of Key-Value pair and MongoDB stores data in the form of Documents.Thus, retrieval of data from each database needs different queries.
 
-The app can be run and tested using the [Heroku Docker CLI plugin](https://devcenter.heroku.com/articles/introduction-local-development-with-docker).
 
-Make sure the plugin is installed:
 
-    heroku plugins:install heroku-docker
-
-Configure Docker and Docker Compose:
-
-    heroku docker:init
-
-And run the app locally:
-
-    docker-compose up web
-
-The app will now be available on the Docker daemon IP on port 8080.
-
-To work with the local database and do migrations, you can open a shell:
-
-    docker-compose run shell
-    bundle exec rake db:migrate
-
-You can also use Docker to release to Heroku:
-
-    heroku create
-    heroku docker:release
-    heroku open
-
-## Documentation
-
-For more information about using Ruby on Heroku, see these Dev Center articles:
-
-- [Ruby on Heroku](https://devcenter.heroku.com/categories/ruby)
 
