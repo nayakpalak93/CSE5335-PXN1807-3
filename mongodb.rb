@@ -29,14 +29,16 @@ end
 puts "Data Stored in MongoDB database successfully.............."
 
 
-puts "Enter a year to get data of that year.."
-$year=gets.chomp
-db[:heroku_5x71tdz7].find('year' => $year).each {|data|
-puts data }
-
 
 puts "Enter the unique primary key to retrieve the data.."
 $uni=gets.chomp
 db[:heroku_5x71tdz7].find('unique' => $uni).each {|data1| 
 puts data1 }
+
+
+puts "Enter a year to get data of that year.."
+$year=gets.chomp
+db[:heroku_5x71tdz7].find('year' => $year).each {|data|
+puts data }
+
 
