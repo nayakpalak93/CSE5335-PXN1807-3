@@ -34,12 +34,14 @@ $y=gets.chomp
 $n=1
 
 while $n < 110 do
-puts redis.hget("row#{$n}", "year",function(err,obj){
+redis.hget("row#{$n}", "year", 
+function(err,obj) do
     $new=obj.to_i
     if $y==$new 
        puts "row#{$n}" 
     end
-})
+end
+)
 =begin if $temp_y == $y
     puts redis.hget "row#{$n}"
 end
