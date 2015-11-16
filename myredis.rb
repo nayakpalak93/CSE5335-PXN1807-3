@@ -34,7 +34,7 @@ $y=gets.chomp
 $n=1
 
 while $n < 110 do
-redis.hget "row#{$n}", "year"
+puts redis.hget "row#{$n}", "year"
 =begin
 if temp == $y
     puts redis.hget "row#{$n}"
