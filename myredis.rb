@@ -35,7 +35,7 @@ $n=1
 
 while $n < 110 do
 temp=redis.hget("row#{$n}", "year")
-if temp_y == $y
+if temp == $y
     puts redis.hget "row#{$n}"
 end
 $n+=1
