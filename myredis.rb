@@ -30,8 +30,9 @@ puts redis.hgetall "row#{$index}"
 
 
 puts "Enter a year to get data of that year"
-$y=gets.chomp
+#$y=gets.chomp
 $n=1
+=begin
 while $n < 110 do
 $temp_y=redis.hget "row#{$n}", "year"
 if $temp_y == $y
@@ -39,3 +40,7 @@ if $temp_y == $y
 end
 $n+=1
 end
+
+=end
+
+puts redis.hget("row#{$n}", "year")
