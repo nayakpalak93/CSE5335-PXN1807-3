@@ -30,7 +30,7 @@ puts redis.hgetall "row#{$index}"
 
 
 puts "Enter a year to get data of that year"
-$y=gets.chomp
+y=gets.chomp
 
 
 $n=1
