@@ -33,7 +33,7 @@ puts "Enter a year to get data of that year"
 $y=gets.chomp
 $n=1
 while $n < 110 do
-$temp_y=redis.hget "row#{$n}" "year"
+$temp_y=redis.hget "row#{$n}".year
 if $temp_y == $y
     puts redis.hget "row#{$n}"
 end
