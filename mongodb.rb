@@ -15,7 +15,7 @@ include Mongo
 
 db=Mongo::Client.new(['ds045664.mongolab.com:45664'], :database => 'heroku_5x71tdz7', :user => 'testuser', :password => '7070')
 
-db.heroku_5x71tdz7.remove({})
+db[:heroku_5x71tdz7].remove({})
 result = JSON.parse(open("https://cdph.data.ca.gov/api/views/yijp-bauh/rows.json?accessType=DOWNLOAD").read)
 $i=1
 while $i < 110 do
