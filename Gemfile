@@ -30,8 +30,7 @@ gem 'spring',        group: :development
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
-#gem 'puma'
+gem 'puma'
 gem 'mongo' , '~> 2.1'
 gem 'json' , '~> 1.8.3'
 gem 'redis'
