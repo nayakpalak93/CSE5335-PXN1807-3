@@ -1,43 +1,84 @@
-<div class="jumbotron text-center">
-  <div class="container">
-    <a href="/" class="lang-logo">
-      <img src="<%= asset_path('lang-logo.png') %>">
-    </a>
-    <h1>Getting Started with Ruby on Heroku</h1>
-    <p>This is a sample Ruby application deployed to Heroku. It's a reasonably simple app - but a good foundation for understanding how to get the most out of the Heroku platform.</p>
-    <a type="button" class="btn btn-lg btn-default" href="https://devcenter.heroku.com/articles/getting-started-with-ruby"><span class="glyphicon glyphicon-flash"></span> Getting Started with Ruby</a>
-    <a type="button" class="btn btn-lg btn-primary" href="https://github.com/heroku/ruby-getting-started"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>
-  </div>
-</div>
-<div class="container">
-  <div class="alert alert-info text-center" role="alert">
-    To deploy your own copy, and learn the fundamentals of the Heroku platform, head over to the <a href="https://devcenter.heroku.com/articles/getting-started-with-ruby" class="alert-link">Getting Started with Ruby on Heroku</a> tutorial.
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col-md-6">
-      <h3><span class="glyphicon glyphicon-info-sign"></span> How this sample app works</h3>
-      <ul>
-        <li>This app was deployed to Heroku, either using Git or by using <a href="https://github.com/heroku/ruby-getting-started">Heroku Button</a> on the repository.</li>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+$(document).ready(function()
+{	
+  var i = 0;
+      
+			var cc=setInterval(function(){myTime()},2000 );
+		
+			function myTime()
+			{
+				if(i == 200)
+				{
+					i = 0;
+				}
+				i = parseInt(i)+1; 
+				url = "/result/"+i;
+               			$.get(url, function(data, status)
+               			{       
+					console.log(data);
+					if(i>21)
+					{
+						 $("#tab tr:eq(1)").fadeOut(500,function()
+                                                 {
+                                                        $("#tab tr:eq(1)").remove();
+                                                 });
+					}	
+					                  var s=data["sex"];
+					                  var i=data["unique"];
+					                  var y=data["year"];
+                        		var row = $("<tr/>").hide();
+        	               		row.append($("<td>" + i + "</td>"));
+                	       		row.append($("<td>" + s + "</td>"));
+                        		row.append($("<td>" + y + "</td>"));
+                   			
+					$("#tab").append(row);
+					row.fadeIn(500);
+               		 	});
+			}					
 
-        <li>When Heroku received the source code, it grabbed all the dependencies in the <a href="https://github.com/heroku/ruby-getting-started/blob/master/Gemfile">Gemfile</a>.</li>
-        <li>The platform then spins up a dyno, a lightweight container that provides an isolated environment in which the slug can be mounted and executed.</li>
-        <li>You can scale your app, manage it, and deploy over <a href="https://addons.heroku.com/">150 add-on services</a>, from the Dashboard or CLI.</li>
-        <li>Check out the <a href="https://devcenter.heroku.com/articles/getting-started-with-ruby">Getting Started</a> guide to learn more!</li>
-      </ul>
-    </div>
-    <div class="col-md-6">
-      <h3><span class="glyphicon glyphicon-link"></span> Helpful Links</h3>
-      <ul>
-        <li><a href="https://www.heroku.com/home">Heroku</a></li>
-        <li><a href="https://devcenter.heroku.com/">Heroku Dev Center</a></li>
-        <li><a href="https://devcenter.heroku.com/articles/getting-started-with-ruby">Getting Started with Ruby on Heroku</a></li>
-        <li><a href="https://devcenter.heroku.com/articles/deploying-ruby-and-rails">Deploying Ruby Apps on Heroku</a></li>
-        <li><a href="https://devcenter.heroku.com/articles/getting-started-with-jruby">Getting Started with Ruby on Heroku (Microsoft Windows)</a></li>
-      </ul>
-    </div>
-  </div> <!-- row -->
-   <div class="alert alert-info text-center" role="alert">
-    Please do work through the Getting Started guide, even if you do know how to build such an application.  The guide covers the basics of working with Heroku, and will familiarize you with all the concepts you need in order to build and deploy your own apps.
-  </div>
+})
+</script>
+<style>
+        .center {
+    margin-left: 25%;
+    margin-right: 40%;
+    margin-top: 20%;
+    width: 50%;
+    height: 40%;
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    font-family: Arial;
+    font-size:30px;
+    color: #ffffff;
+    background-color: #b0e0e6;
+}
+        body
+        {
+                background-size: 1500px 760px;
+                background-repeat: no-repeat;
+		background-color:#BCC6CC;
+        }
+</style>
+
+</head>
+<body>
+<div  class="wrapper">
+
+<table  id = "tab" border="1">
+        <caption>Census Data 2013</caption>
+        <tr>
+                <th>ID</th>
+                <th width=344px>Sex</th>
+                <th width=400px >Year</th>
+               
+      </tr>
+</table>
+
 </div>
+
+</html>
