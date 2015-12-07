@@ -6,7 +6,7 @@
 $(document).ready(function()
 {	
   var i = 0;
-      var rowCount = $('#tab tbody tr').length;
+     
 			var cc=setInterval(function(){myTime()},500 );
 		
 			function myTime()
@@ -19,6 +19,7 @@ $(document).ready(function()
 				url = "/result/"+i;
                			$.get(url, function(data, status)
                			{       
+               			     var rowCount = $('#tab tbody tr').length;
 					console.log(data);
 					console.log(rowCount);
 					if(rowCount>21)
