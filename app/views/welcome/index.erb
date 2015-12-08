@@ -7,11 +7,11 @@ $(document).ready(function()
 {	
   var i = 0;
       
-			var cc=setInterval(function(){myTime()},500 );
-		
-			function myTime()
-			{
-				if(i == 109)
+      
+      
+       setTimeout(function(){
+           
+           	if(i == 109)
 				{
 					i = 0;
 				}
@@ -36,9 +36,16 @@ $(document).ready(function()
                         		row.append($("<td>" + y + "</td>"));
                    			
 					$("#tab").append(row);
-					row.fadeIn(500);
+					row.fadeIn();
                		 	});
-			}					
+           
+           
+       }, 1000);
+      
+      
+		//	var cc=setInterval(function(){myTime()},500 );
+		
+						
 
 })
 </script>
