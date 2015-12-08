@@ -11,7 +11,7 @@ $(document).ready(function()
 		
 			function myTime()
 			{
-				if(i == 200)
+				if(i == 109)
 				{
 					i = 0;
 				}
@@ -20,18 +20,18 @@ $(document).ready(function()
                			$.get(url, function(data, status)
                			{       
 					console.log(data);
-					if(i>21)
+				/*	if(i>21)
 					{
 						 $("#tab tr:eq(1)").fadeOut(500,function()
                                                  {
                                                         $("#tab tr:eq(1)").remove();
                                                  });
-					}	
+					}	*/
 					                  var s=data["sex"];
-					                  var i=data["unique"];
+					                  var i1=data["unique"];
 					                  var y=data["year"];
                         		var row = $("<tr/>").hide();
-        	               		row.append($("<td>" + i + "</td>"));
+        	               		row.append($("<td>" + i1 + "</td>"));
                 	       		row.append($("<td>" + s + "</td>"));
                         		row.append($("<td>" + y + "</td>"));
                    			
