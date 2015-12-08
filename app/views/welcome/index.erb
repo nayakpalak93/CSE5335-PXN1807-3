@@ -10,10 +10,7 @@ $(document).ready(function()
       
      
        setInterval(function(){
-           
-         if(i>109){
-             i=0;
-         }
+          
 				i = parseInt(i)+1; 
 				url = "/result/"+i;
                			$.get(url, function(data, status)
