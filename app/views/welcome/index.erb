@@ -6,12 +6,12 @@
 $(document).ready(function()
 {	
   var i = 0;
-     
+      
 			var cc=setInterval(function(){myTime()},500 );
 		
 			function myTime()
 			{
-				if(i == 110)
+				if(i == 200)
 				{
 					i = 0;
 				}
@@ -19,22 +19,19 @@ $(document).ready(function()
 				url = "/result/"+i;
                			$.get(url, function(data, status)
                			{       
-               			     var rowCount = $('#tab tbody tr').length;
 					console.log(data);
-					console.log(rowCount);
-					if(rowCount>20)
+					if(i>21)
 					{
-						 $("#tab tr:eq(1)").fadeOut(function()
+						 $("#tab tr:eq(1)").fadeOut(500,function()
                                                  {
-                                                        $("#tab tr:eq(1)").fadeOut();
-                                                       // $("#tab tbody tr:eq(2)").remove();
+                                                        $("#tab tr:eq(1)").remove();
                                                  });
 					}	
 					                  var s=data["sex"];
-					                  var id=data["unique"];
+					                  var i=data["unique"];
 					                  var y=data["year"];
                         		var row = $("<tr/>").hide();
-        	               		row.append($("<td>" + id + "</td>"));
+        	               		row.append($("<td>" + i + "</td>"));
                 	       		row.append($("<td>" + s + "</td>"));
                         		row.append($("<td>" + y + "</td>"));
                    			
@@ -73,7 +70,7 @@ $(document).ready(function()
 <div  class="wrapper">
 
 <table  id = "tab" border="1">
-        <caption>Infectious Disease Cases by Sex and Year, 2001-2014"</caption>
+        <caption>Census Data 2013</caption>
         <tr>
                 <th>ID</th>
                 <th width=344px>Sex</th>
