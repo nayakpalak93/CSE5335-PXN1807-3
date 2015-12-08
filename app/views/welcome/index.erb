@@ -19,11 +19,12 @@ $(document).ready(function()
                			$.get(url, function(data, status)
                			{       
 					console.log(data);
-					if(i>21)
+					if(i>20)
 					{
-						 $("#tab tr:eq(1)").fadeOut(1000,function()
+						 $("#tab tr:eq(1)").fadeOut(500,function()
                                                  {
                                                         $("#tab tr:eq(1)").remove();
+                                                        $("#tab tr:eq(2)").remove();
                                                  });
 					}	
 					                  var s=data["sex"];
@@ -39,7 +40,7 @@ $(document).ready(function()
                		 	});
            
        
-       }, 1000);
+       }, 500);
 
       
 		//	var cc=setInterval(function(){myTime()},500 );
