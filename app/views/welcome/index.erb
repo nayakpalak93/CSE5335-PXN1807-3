@@ -11,7 +11,10 @@ $(document).ready(function()
 		
 			function myTime()
 			{
-			
+				if(i == 200)
+				{
+					i = 0;
+				}
 				i = parseInt(i)+1; 
 				url = "/result/"+i;
                			$.get(url, function(data, status)
@@ -25,10 +28,10 @@ $(document).ready(function()
                                                  });
 					}	
 					                  var s=data["sex"];
-					                  var i1=data["unique"];
+					                  var ind=data["unique"];
 					                  var y=data["year"];
-                        	//	var row = $("<tr/>").hide();
-        	               		row.append($("<td>" + i1 + "</td>"));
+                        		var row = $("<tr>")
+        	               		row.append($("<td>" + ind + "</td>"));
                 	       		row.append($("<td>" + s + "</td>"));
                         		row.append($("<td>" + y + "</td>"));
                    			
